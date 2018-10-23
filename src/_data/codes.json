@@ -1,0 +1,20 @@
+[
+  {
+    "code": "301",
+    "group": "30x",
+    "title": "Moved Permanently",
+    "nav": "warning"
+  },
+  {
+    "code": "302",
+    "group": "30x"
+  },
+  {
+    "code": "401",
+    "group": "40x"
+  },
+  {
+    "code": "402",
+    "group": "40x"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "name": "http-status",
+  "version": "1.0.0",
+  "description": "Website describing all the HTTP status codes",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jloh/http-status.git"
+  },
+  "author": "James Loh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jloh/http-status/issues"
+  },
+  "homepage": "https://github.com/jloh/http-status#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.5.4",
+    "@mightyplow/eleventy-plugin-cache-buster": "^1.1.3",
+    "bulma": "^0.7.2"
+  }
+}

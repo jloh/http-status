@@ -1,0 +1,15 @@
+---
+title: HTTP Status Codes
+layout: base
+---
+      <h1 class="title">
+        Hello World
+      </h1>
+      <p class="subtitle">
+        {% for group,c in codes | groupby("group")%}
+          <h2 class="title h2">{{ group }}</h2>
+            {% for status in c %}
+            {{ status.code }} - {{ status.title }}<br>
+          {% endfor %}
+        {% endfor %}
+      </p>
