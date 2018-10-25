@@ -1,14 +1,18 @@
 ---
 # HTTP Status Codes
 
-# 20x
-- code: 404
+#
+# 2XX
+#
+- code: 200
   title: "Page not found"
-  group: 40x
+  group: 2XX
 
-# 30x
+#
+# 3XX
+#
 - code: 301
-  group: 30x
+  group: 3XX
   title: "Moved Permanently"
   description: |
     Hello
@@ -16,45 +20,59 @@
   nav: warning
 
 - code: 302
-  group: 30x
+  group: 3XX
 
-# 40x
+#
+# 4XX
+#
 - code: 401
-  group: 40x
-- code: 402
-  group: 40x
+  group: 4XX
 
-# 50x
+- code: 402
+  group: 4XX
+
+#
+# 5XX
+#
 - code: 500
-  group: 50x
+  group: 5XX
   title: Internal Server Error
   rfc: RFC7231
+
 - code: 501
-  group: 50x
+  group: 5XX
   title: Not Implemented
   rfc: RFC7231
   rfc_link:
   description: The origin web server either does not recognize the request method, or it unable to fulfill the request. Usually, this implies future availability (e.g., an upcoming feature or web-service API).
+
 - code: 502
-  group: 50x
+  group: 5XX
   title: Bad gateway
   rfc: RFC7231
+
 - code: 503
-  group: 50x
+  group: 5XX
   title: Service Unavailable
   rfc: RFC7231
+  rfc_link: rfc7231#section-6.6.4
+  description: Indicates that the server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay.  The server MAY send a Retry-After header field to suggest an appropriate amount of time for the client to wait before retrying the request.
+
 - code: 504
-  group: 50x
+  group: 5XX
   title: Gateway Timeout
   rfc: RFC7231
   rfc_link: rfc7231#section-6.6.5
   description: Indicates that the server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
+
 - code: 505
-  group: 50x
+  group: 5XX
   title: HTTP Version Not Supported
   rfc: RFC7231
 
+#
 # Non-standard codes
+#
 - code: 520
   group: Cloudflare
   title: Unknown error
@@ -73,11 +91,15 @@
 - code: 523
   group: Cloudflare
   title: Origin is Unreachable
+  description: |
+    Error 523 indicates that an issue with the origin web server has occurred and the site is unreachable.
   refs:
     - https://support.cloudflare.com/hc/en-us/articles/115003011431/
 - code: 524
   group: Cloudflare
   title: A Timeout Error
+  description: |
+    Cloudflare was able to make a TCP connection to the origin, but the origin did not reply with an HTTP response before the connection timed out. The Cloudflare edge will typically wait for an HTTP response from your server for 100 seconds. If no response is sent by your server in that time, Cloudflare close the connection and serve a 524 error page.
   refs:
     - https://support.cloudflare.com/hc/en-us/articles/115003011431/
 - code: 525
