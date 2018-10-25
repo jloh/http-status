@@ -1,16 +1,26 @@
 ---
-layout: code
+layout: base
 pagination:
   data: codes
   size: 1
   alias: code
 permalink: /{{ code.code }}/index.html
-title: "{{ code.title }}"
+title: HTTP Status Codes
 ---
-      <h1 class="title">
-        {{ code.code }} - {{ code.title }}
-      </h1>
-      <p class="subtitle">
-        {{ code.code }}
-        {{ code.title }}
-      </p>
+
+<div class="columns is-centered is-gapless">
+  <div class="column is-8">
+    <header>
+      <h1 class="title">Code {{ code.code }}</h1>
+      <p class="subtitle has-text-grey">{{ code.title }}{% if code.rfc %} - <a href="https://tools.ietf.org/html/{{ code.rfc_link if code.rfc_link else code.rfc | lower }}" target="_blank">{{ code.rfc }}</a>{% endif %}</p>
+    </header>
+  </div>
+</div>
+
+<div class="columns is-centered is-gapless">
+  <div class="column is-8">
+    <div class="content is-medium">
+      {{ code.description | escape }}
+    </div>
+  </div>
+</div>

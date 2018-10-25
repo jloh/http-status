@@ -2,14 +2,21 @@
 title: HTTP Status Codes
 layout: base
 ---
+
+<div class="columns is-centered is-gapless">
+  <div class="column is-8">
+    <div class="content is-medium">
       <h1 class="title">
-        Hello World
+        {{ title }}
       </h1>
-      <p class="subtitle">
-        {% for group,c in codes | groupby("group")%}
-          <h2 class="title h2">{{ group }}</h2>
-            {% for status in c %}
-            {{ status.code }} - {{ status.title }}<br>
-          {% endfor %}
+      {% for group,c in codes | groupby("group")%}
+        <h2 class="title">{{ group }}</h2>
+        <ul>
+        {% for status in c %}
+          <li><a href="/{{ status.code }}">{{ status.code }}</a> - {{ status.title }}</li>
         {% endfor %}
-      </p>
+        </ul>
+      {% endfor %}
+    </div>
+  </div>
+</div>
