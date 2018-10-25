@@ -1,0 +1,102 @@
+---
+# HTTP Status Codes
+
+# 20x
+- code: 404
+  title: "Page not found"
+  group: 40x
+
+# 30x
+- code: 301
+  group: 30x
+  title: "Moved Permanently"
+  description: |
+    Hello
+    This is on a new line
+  nav: warning
+
+- code: 302
+  group: 30x
+
+# 40x
+- code: 401
+  group: 40x
+- code: 402
+  group: 40x
+
+# 50x
+- code: 500
+  group: 50x
+  title: Internal Server Error
+  rfc: RFC7231
+- code: 501
+  group: 50x
+  title: Not Implemented
+  rfc: RFC7231
+  rfc_link:
+  description: The origin web server either does not recognize the request method, or it unable to fulfill the request. Usually, this implies future availability (e.g., an upcoming feature or web-service API).
+- code: 502
+  group: 50x
+  title: Bad gateway
+  rfc: RFC7231
+- code: 503
+  group: 50x
+  title: Service Unavailable
+  rfc: RFC7231
+- code: 504
+  group: 50x
+  title: Gateway Timeout
+  rfc: RFC7231
+  rfc_link: rfc7231#section-6.6.5
+  description: Indicates that the server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
+- code: 505
+  group: 50x
+  title: HTTP Version Not Supported
+  rfc: RFC7231
+
+# Non-standard codes
+- code: 520
+  group: Cloudflare
+  title: Unknown error
+  refs:
+    - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+- code: 521
+  group: Cloudflare
+  title: Web server is down
+  refs:
+    - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+- code: 522
+  group: Cloudflare
+  title: Connection timed out
+  refs:
+    - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+- code: 523
+  group: Cloudflare
+  title: Origin is Unreachable
+  refs:
+    - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+- code: 524
+  group: Cloudflare
+  title: A Timeout Error
+  refs:
+    - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+- code: 525
+  group: Cloudflare
+  title: SSL handshake failed
+  refs:
+    - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+- code: 526
+  group: Cloudflare
+  title: Invalid SSL certificate
+  refs:
+    - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+- code: 527
+  group: Cloudflare
+  title: Railgun Listener to Origin Error
+  refs:
+    - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+- code: 530
+  group: Cloudflare
+  title: Origin DNS Error
+  refs:
+    - https://support.cloudflare.com/hc/en-us/articles/115003011431/
