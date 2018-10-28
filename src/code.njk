@@ -4,7 +4,7 @@ pagination:
   data: codes
   size: 1
   alias: code
-permalink: /{{ code.code }}/index.html
+permalink: "{{ code.code }}/index.html"
 title: HTTP Status Codes
 ---
 
@@ -12,7 +12,7 @@ title: HTTP Status Codes
   <div class="column is-8">
     <header>
       <h1 class="title">Code {{ code.code }}</h1>
-      <p class="subtitle has-text-grey">{{ code.title }}{% if code.rfc %} - <a href="https://tools.ietf.org/html/{{ code.rfc_link if code.rfc_link else code.rfc | lower }}" target="_blank">{{ code.rfc }}</a>{% endif %}</p>
+      <p class="subtitle has-text-grey">{{ code.title }}{% if code.rfc %} - <a href="{{ code.rfc.link }}" target="_blank">{{ code.rfc.number }}</a>{% endif %}</p>
     </header>
   </div>
 </div>
@@ -20,7 +20,7 @@ title: HTTP Status Codes
 <div class="columns is-centered is-gapless">
   <div class="column is-8">
     <div class="content is-medium">
-      {{ code.description | escape }}
+      <p>{{ code.description | escape }}</p>
     </div>
   </div>
 </div>

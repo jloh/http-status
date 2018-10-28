@@ -37,38 +37,47 @@
 - code: 500
   group: 5XX
   title: Internal Server Error
-  rfc: RFC7231
+  rfc:
+    number: RFC7231
+    link: https://tools.ietf.org/html/rfc7231#section-6.6.1
 
 - code: 501
   group: 5XX
   title: Not Implemented
-  rfc: RFC7231
-  rfc_link:
+  rfc:
+    number: RFC7231
+    link: https://tools.ietf.org/html/rfc7231#section-6.6.2
   description: The origin web server either does not recognize the request method, or it unable to fulfill the request. Usually, this implies future availability (e.g., an upcoming feature or web-service API).
 
 - code: 502
   group: 5XX
   title: Bad gateway
-  rfc: RFC7231
+  rfc:
+    number: RFC7231
+    link: https://tools.ietf.org/html/rfc7231#section-6.6.3
 
 - code: 503
   group: 5XX
   title: Service Unavailable
-  rfc: RFC7231
-  rfc_link: rfc7231#section-6.6.4
+  rfc:
+    number: RFC7231
+    link: https://tools.ietf.org/html/rfc7231#section-6.6.4
   description: Indicates that the server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay.  The server MAY send a Retry-After header field to suggest an appropriate amount of time for the client to wait before retrying the request.
 
 - code: 504
   group: 5XX
   title: Gateway Timeout
-  rfc: RFC7231
-  rfc_link: rfc7231#section-6.6.5
+  rfc:
+    number: RFC7231
+    link: https://tools.ietf.org/html/rfc7231#section-6.6.5
   description: Indicates that the server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
 
 - code: 505
   group: 5XX
   title: HTTP Version Not Supported
-  rfc: RFC7231
+  rfc:
+    number: RFC7231
+    link: https://tools.ietf.org/html/rfc7231#section-6.6.6
 
 #
 # Non-standard codes
