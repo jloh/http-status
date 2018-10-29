@@ -1,0 +1,17 @@
+<meta property="og:site_name" content="HTTP Status Codes" />
+    <meta property="og:type" content="article" />
+    {# <meta property="og:title" content="" /> #}
+    {# <meta property="og:description" content="" /> #}
+    <meta property="og:url" content="https://httpstatus.jloh.co{{ page.url }}" />
+{%- if code %}
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org/",
+        "@type": "DefinedTerm",
+        "name": "HTTP Status Code {{ code.code }}",
+        "termCode": "{{ code.code }}",
+        "description": "{{ code.description }}",
+        "inDefinedTermSet": "https://httpstatus.jloh.co"
+      }
+    </script>
+{% endif -%}
