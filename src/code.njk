@@ -30,5 +30,12 @@ title: HTTP Status Codes
       </ul>
       {% endif %}
     </div>
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li><a href="/">Status Codes</a></li>
+        <li><a href="#">{{ code.group }}</a></li>
+        <li class="is-active"><a href="#" aria-current="page">{{ code.code }} - {{ code.title }}</a></li>
+      </ul>
+    </nav>
   </div>
 </div>
