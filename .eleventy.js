@@ -1,7 +1,6 @@
-
 const CleanCSS = require("clean-css");
 
-module.exports = function(config) {
+module.exports = function (config) {
 
   // just pass our redirect and header rules through to the dist folder
   config.addPassthroughCopy("_redirects");
@@ -9,7 +8,7 @@ module.exports = function(config) {
   config.addPassthroughCopy("robots.txt");
   config.addPassthroughCopy("src/js");
 
-  config.addFilter("cssmin", function(code) {
+  config.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
 
@@ -23,7 +22,7 @@ module.exports = function(config) {
     },
 
     // some handy options
-    templateFormats : ["njk"],
+    templateFormats: ["njk"],
     passthroughFileCopy: true
 
   };
