@@ -21,6 +21,14 @@ title: HTTP Status Codes
   <div class="column is-8">
     <div class="content is-medium">
       <p>{{ code.description | escape }}</p>
+      {% if code.refs %}
+      <h3 class="title">References</h3>
+      <ul>
+        {% for ref in code.refs %}
+          <li><a href="{{ ref }}">{{ ref }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </div>
   </div>
 </div>
