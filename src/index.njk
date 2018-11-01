@@ -5,7 +5,7 @@ layout: base
 
 <div class="columns is-centered is-gapless">
   <div class="column is-8">
-    <div class="content is-medium">
+    <div class="content">
       <h1 class="title">
         {{ title }}
       </h1>
@@ -13,7 +13,7 @@ layout: base
         <h2 class="title">{{ group }}</h2>
         <ul>
         {% for status in c %}
-          <li><a href="/{{ status.code }}">{{ status.code }}</a> - {{ status.title }}</li>
+          <li><a href="/{{ status.code }}">{{ status.code }} - {{ status.title }}{% if status.tag %}</a> <span class="tag is-light">{{ status.tag }}</span>{% endif %}</li>
         {% endfor %}
         </ul>
       {% endfor %}
