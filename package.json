@@ -19,6 +19,11 @@
     "url": "https://github.com/jloh/http-status/issues"
   },
   "homepage": "https://github.com/jloh/http-status#readme",
+  "nodemonConfig": {
+    "watch": "src/_data",
+    "ext": "yaml",
+    "exec": "node scripts/yaml2json.js"
+  },
   "dependencies": {
     "@11ty/eleventy": "^0.5.4",
     "@mightyplow/eleventy-plugin-cache-buster": "^1.1.3",
