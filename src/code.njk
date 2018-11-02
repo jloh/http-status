@@ -12,25 +12,32 @@ title: HTTP Status Codes
   <div class="column is-8">
     <header>
       <h1 class="title">Code {{ code.code }}</h1>
-      <p class="subtitle has-text-grey">{{ code.title }}{% if code.rfc %} - <a href="{{ code.rfc.link }}" target="_blank">{{ code.rfc.number }}</a>{% endif %}</p>
+      <p class="subtitle has-text-grey">{{ code.title }}{% if code.tag %}</a> <span class="tag is-light">{{ code.tag }}{% endif %}{% if code.rfc %} - <a href="{{ code.rfc.link }}" target="_blank">{{ code.rfc.number }}</a>{% endif %}</p>
     </header>
   </div>
 </div>
 
 <div class="columns is-centered is-gapless">
   <div class="column is-8">
-    <div class="content is-medium">
-      <p>{{ code.description | escape }}</p>
+    <div>
+      <p class="content is-medium">{{ code.description | escape }}</p>
+      {% if code.diagram %}
+      <div class="mermaid" style="padding-bottom: 2rem;">
+        {{ code.diagram }}
+      </div>
+      {% endif %}
       {% if code.refs %}
-      <h3 class="title">References</h3>
-      <ul>
-        {% for ref in code.refs %}
-          <li><a href="{{ ref }}">{{ ref }}</a></li>
-        {% endfor %}
-      </ul>
+      <div class="content is-medium">
+        <h3 class="title is-4">References</h3>
+        <ul>
+          {% for ref in code.refs %}
+            <li><a href="{{ ref }}">{{ ref }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
       {% endif %}
     </div>
-    <nav class="breadcrumb" aria-label="breadcrumbs">
+    <nav class="breadcrumb" aria-label="breadcrumbs" style="padding-top: 1rem;">
       <ul>
         <li><a href="/">Status Codes</a></li>
         <li><a href="#">{{ code.group }}</a></li>
