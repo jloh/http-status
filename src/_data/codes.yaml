@@ -83,6 +83,18 @@
     tag: Cloudflare
     description: |
       Cloudflare was able to make a TCP connection to the origin, but the origin did not reply with an HTTP response before the connection timed out. The Cloudflare edge will typically wait for an HTTP response from your server for 100 seconds. If no response is sent by your server in that time, Cloudflare close the connection and serve a 524 error page.
+    diagram: |
+      sequenceDiagram
+      participant User
+      participant Cloudflare
+      participant Website
+      Note right of Website: Behind Cloudflare
+
+      User->>Cloudflare: Request
+      Cloudflare->>+Website: Initiates TCP connection
+      Cloudflare->>+Website: TCP connection succeeds!
+      Website -->> Cloudflare: Takes too long to respond
+      Cloudflare ->> User: Sends back 524 error :(
     refs:
       - https://support.cloudflare.com/hc/en-us/articles/115003011431/
   525:
