@@ -1,0 +1,46 @@
+---
+layout: base
+title: HTTP Status Codes
+templateEngineOverride: njk
+---
+
+<div class="columns is-centered is-gapless">
+  <div class="column is-8">
+    <header>
+      <h1 class="title">Code {{ code.code }}</h1>
+      <p class="subtitle has-text-grey">{{ code.title }}{% if code.tag %}</a> <span class="tag is-light">{{ code.tag }}{% endif %}{% if code.rfc %} - <a href="{{ code.rfc.link }}" target="_blank">{{ code.rfc.number }}</a>{% endif %}</p>
+    </header>
+  </div>
+</div>
+
+<div class="columns is-centered is-gapless">
+  <div class="column is-8">
+    <div>
+      <div class="content is-medium">
+        {{ content | safe }}
+      </div>
+      {% if code.diagram %}
+      <div class="mermaid" style="padding-bottom: 2rem;">
+        {{ code.diagram }}
+      </div>
+      {% endif %}
+      {% if code.refs %}
+      <div class="content is-medium">
+        <h3 class="title is-4">References</h3>
+        <ul>
+          {% for ref in code.refs %}
+            <li><a href="{{ ref }}">{{ ref }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    {# <nav class="breadcrumb" aria-label="breadcrumbs" style="padding-top: 1rem;">
+      <ul>
+        <li>Status Codes</li>
+        <li>{{ code.group }}</li>
+        <li class="is-active"><a href="#" aria-current="page">{{ code.code }} - {{ code.title }}</a></li>
+      </ul>
+    </nav> #}
+  </div>
+</div>
