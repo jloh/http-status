@@ -12,3 +12,20 @@
 .ref-list {
   word-break: break-all;
 }
+
+/* Make footer less big */
+.footer {
+  padding: 3rem 1.5rem 3rem;
+}
+
+/* Sticky footer */
+/* https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
