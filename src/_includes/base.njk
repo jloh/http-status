@@ -16,6 +16,14 @@
       {{ content | safe }}
     </div>
   </section>
-  {% include 'js.njk' %}
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-gapless is-mobile mb-0">
+        <div class="column is-pulled-left">Made with &#10084; by <a href="https://jloh.co">jloh</a></div>
+        <div class="column is-pulled-right has-text-right">Made with <a href="https://www.11ty.io/" title="Eleventy static site generator">Eleventy</a>, <a href="https://bulma.io/" title="Bulma: A modern CSS framework">Bulma</a> and <a href="https://www.netlify.com/" title="Netlify">Netlify</a></div>
+      </div>
+    </div>
+  </footer>
+  {% include 'js.njk' -%}
   </body>
 </html>
