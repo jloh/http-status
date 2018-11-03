@@ -20,14 +20,14 @@ templateEngineOverride: njk
         {{ content | safe }}
       </div>
       {% if code.diagram %}
-      <div class="mermaid" style="padding-bottom: 2rem;">
+      <div class="mermaid">
         {{ code.diagram }}
       </div>
       {% endif %}
       {% if code.refs %}
       <div class="content is-medium">
         <h3 class="title is-4">References</h3>
-        <ul>
+        <ul class="ref-list">
           {% for ref in code.refs %}
             <li><a href="{{ ref }}">{{ ref }}</a></li>
           {% endfor %}

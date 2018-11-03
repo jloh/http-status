@@ -1,7 +1,14 @@
 .mermaid svg {
+  /* Add some padding above our main text */
+  padding-bottom: 2rem;
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+
+/* References list */
+.ref-list {
+  word-break: break-all;
 }
