@@ -1,4 +1,4 @@
-const CleanCSS = require("clean-css");
+const cacheBuster = require('@mightyplow/eleventy-plugin-cache-buster');
 
 module.exports = function (config) {
 
@@ -7,10 +7,13 @@ module.exports = function (config) {
   config.addPassthroughCopy("_headers");
   config.addPassthroughCopy("robots.txt");
   config.addPassthroughCopy("src/js");
+  config.addPassthroughCopy("src/css");
 
-  config.addFilter("cssmin", function (code) {
-    return new CleanCSS({}).minify(code).styles;
-  });
+  // Cache busting!
+  const cacheBusterOptions = {
+    outputDirectory: 'dist'
+  };
+  config.addPlugin(cacheBuster(cacheBusterOptions));
 
   return {
 
