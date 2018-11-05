@@ -10,7 +10,7 @@ layout: base
         <h2 class="title is-normal">{{ group }}</h2>
         <ul class="is-size-5">
         {% for status in c %}
-          <li><a href="/{{ status.code }}">{{ status.code }} {{ status.title }}{% if status.tag %}</a> <span class="tag is-light">{{ status.tag }}</span>{% endif %}</li>
+          <li><a href="/{{ status.code }}/">{{ status.code }} {{ status.title }}{% if status.tag %}</a> <span class="tag is-light">{{ status.tag }}</span>{% endif %}</li>
         {% endfor %}
         </ul>
       {% endfor %}
