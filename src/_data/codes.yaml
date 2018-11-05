@@ -101,9 +101,9 @@
       participant Website
       Note right of Website: Behind Cloudflare
 
-      User->>Cloudflare: Initial request
-      Cloudflare->>+Website: Initiates TCP connection
-      Cloudflare->>+Website: TCP connection succeeds!
+      User ->> Cloudflare: Initial request
+      Cloudflare ->>+ Website: Initiates TCP connection
+      Cloudflare ->>+ Website: TCP connection succeeds
       Website -->> Cloudflare: Takes too long to respond
       Cloudflare -->> User: Returns 524 error
     refs:
