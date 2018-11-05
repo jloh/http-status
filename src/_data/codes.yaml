@@ -1,39 +1,37 @@
 ---
-2XX:
-  nav: is-success
-  200:
-    title: gucci
+# 2XX:
+#   200:
+#     title: gucci
 
-3XX:
-  # nav: false
-  301:
-    title: Moved Permanently
+# 3XX:
+#   301:
+#     title: Moved Permanently
 
-4XX:
-  401:
-    title: Denied
-  402:
-    title: Denied
+# 4XX:
+#   401:
+#     title: Denied
+#   402:
+#     title: Denied
 
 5XX:
-  500:
-    title: Internal Server Error
-    rfc:
-      number: RFC7231
-      link: https://tools.ietf.org/html/rfc7231#section-6.6.1
+  # 500:
+  #   title: Internal Server Error
+  #   rfc:
+  #     number: RFC7231
+  #     link: https://tools.ietf.org/html/rfc7231#section-6.6.1
 
-  501:
-    title: Not Implemented
-    rfc:
-      number: RFC7231
-      link: https://tools.ietf.org/html/rfc7231#section-6.6.2
-    description: The origin web server either does not recognize the request method, or it unable to fulfill the request. Usually, this implies future availability (e.g., an upcoming feature or web-service API).
+  # 501:
+  #   title: Not Implemented
+  #   rfc:
+  #     number: RFC7231
+  #     link: https://tools.ietf.org/html/rfc7231#section-6.6.2
+  #   description: The origin web server either does not recognize the request method, or it unable to fulfill the request. Usually, this implies future availability (e.g., an upcoming feature or web-service API).
 
-  502:
-    title: Bad gateway
-    rfc:
-      number: RFC7231
-      link: https://tools.ietf.org/html/rfc7231#section-6.6.3
+  # 502:
+  #   title: Bad gateway
+  #   rfc:
+  #     number: RFC7231
+  #     link: https://tools.ietf.org/html/rfc7231#section-6.6.3
 
   503:
     title: Service Unavailable
@@ -49,11 +47,11 @@
       link: https://tools.ietf.org/html/rfc7231#section-6.6.5
     description: Indicates that the server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
 
-  505:
-    title: HTTP Version Not Supported
-    rfc:
-      number: RFC7231
-      link: https://tools.ietf.org/html/rfc7231#section-6.6.6
+  # 505:
+  #   title: HTTP Version Not Supported
+  #   rfc:
+  #     number: RFC7231
+  #     link: https://tools.ietf.org/html/rfc7231#section-6.6.6
 
   # Non-standard Ones
   520:
@@ -72,16 +70,16 @@
       * Presence of multiple Content-Length headers
     refs:
       - https://support.cloudflare.com/hc/en-us/articles/115003011431/
-  521:
-    title: Web server is down
-    tag: Cloudflare
-    refs:
-      - https://support.cloudflare.com/hc/en-us/articles/115003011431/
-  522:
-    title: Connection timed out
-    tag: Cloudflare
-    refs:
-      - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+  # 521:
+  #   title: Web server is down
+  #   tag: Cloudflare
+  #   refs:
+  #     - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+  # 522:
+  #   title: Connection timed out
+  #   tag: Cloudflare
+  #   refs:
+  #     - https://support.cloudflare.com/hc/en-us/articles/115003011431/
   523:
     title: Origin is Unreachable
     tag: Cloudflare
@@ -93,7 +91,9 @@
     title: A Timeout Error
     tag: Cloudflare
     description: |
-      Cloudflare was able to make a TCP connection to the website behind them, but it did not reply with an HTTP response before the connection timed out. Cloudflare will typically wait 100 seconds for a HTTP response from your server. If no response is sent by your server in that time, Cloudflare closes the connection and serves a 524 error page.
+      Cloudflare was able to make a TCP connection to the website behind them, but it did not reply with an HTTP response before the connection timed out. Cloudflare will typically wait 100 seconds for a HTTP response from your server.
+
+      If no response is sent by your server in that time, Cloudflare closes the connection and serves a 524 error page.
     diagram: |
       sequenceDiagram
       participant User
@@ -105,19 +105,59 @@
       Cloudflare->>+Website: Initiates TCP connection
       Cloudflare->>+Website: TCP connection succeeds!
       Website -->> Cloudflare: Takes too long to respond
-      Cloudflare -->> User: Sends back 524 error :(
+      Cloudflare -->> User: Returns 524 error
     refs:
       - https://support.cloudflare.com/hc/en-us/articles/115003011431/
   525:
-    tag: Cloudflare
     title: SSL handshake failed
+    description: |
+      This error indicates that the SSL handshake between Cloudflare and the website behind it has occurred. This means that Cloudflare is set to use Full SSL in the Cloudflare settings for the domain, so Cloudflare attempts to make a connection using SSL (for requests beginning in `https://`) to the web server that hosts the domain.
+
+      The most common causes include:
+
+        * The website does not have a valid SSL certificate installed
+        * The website is not listening on port `443`
+        * The website does not support or is not configured properly to support SNI
+        * The cipher suites that Cloudflare uses do not match what the origin accepts
+    diagram: |
+      sequenceDiagram
+      participant User
+      participant Cloudflare
+      participant Website
+      Note right of Website: Behind Cloudflare
+
+      User->>Cloudflare: Initial request
+      Cloudflare->>+Website: Initiates SSL handshake
+      Website -->>+ Cloudflare: SSL handshake fails
+      Cloudflare -->> User: Returns 525 error
+    tag: Cloudflare
     refs:
       - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+      - https://support.cloudflare.com/hc/en-us/articles/200278659/
   526:
     title: Invalid SSL certificate
+    description: |
+      This error happens where there's a problem validating the SSL certificate on the origin web server and the Cloudflare SSL configuration on the website is set to "Full SSL (Strict)".
+
+      Some of the common causes of this are:
+        * The certificate has expired
+        * The certificate has been revoked
+        * The certificate is self-signed
+        * Your website configuration is serving a certificate for the wrong domain
+    diagram: |
+      sequenceDiagram
+      participant User
+      participant Cloudflare
+      participant Website
+      Note right of Website: Behind Cloudflare
+
+      User->>Cloudflare: Initial request
+      Cloudflare -->> Website: Server fails SSL validation
+      Cloudflare -->> User: Returns 526 error
     tag: Cloudflare
     refs:
       - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+      - https://support.cloudflare.com/hc/en-us/articles/200721975/
   527:
     title: Railgun Listener to Origin Error
     tag: Cloudflare
@@ -125,6 +165,28 @@
       - https://support.cloudflare.com/hc/en-us/articles/115003011431/
   530:
     title: Origin DNS Error
+    description: |
+      Cloudflare cannot resolve the A/AAAA or CNAME DNS record requested. Even if Cloudflare is resolving correctly, the record cannot be found or is a CNAME record to an external domain that cannot be resolved.
+
+      The Error Message the browser will see will show a 1016 error, but the actual HTTP response code is 530.
+
+      The most common causes are:
+
+        * Your Cloudflare DNS configuration does not have an A/AAAA DNS record that matches the origin IP address.
+        * You have a *CNAME DNS record* pointing to an external domain that cannot be resolved.
+        * You're using Cloudflare [Load Balancer](https://www.cloudflare.com/load-balancing/) and the origin host names (CNAMEs) in your default/region and fallback pools cannot be resolved via DNS.
+
+    diagram: |
+      sequenceDiagram
+      participant User
+      participant Cloudflare
+      participant Website
+      Note right of Website: Behind Cloudflare
+
+      User ->> Cloudflare: Initial request
+      Cloudflare -->> Website: Can't resolve the website
+      Cloudflare -->> User: Returns 530 error
     tag: Cloudflare
     refs:
       - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+      - https://support.cloudflare.com/hc/en-us/articles/234979888/
