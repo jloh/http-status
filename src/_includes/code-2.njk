@@ -8,7 +8,7 @@ templateEngineOverride: njk
   <div class="column is-8">
     <header>
       <h1 class="title">Code {{ code.code }}</h1>
-      <p class="subtitle has-text-grey">{{ code.title }}{% if code.tag %}</a> <span class="tag is-light">{{ code.tag }}{% endif %}{% if code.rfc %} - <a href="{{ code.rfc.link }}" target="_blank">{{ code.rfc.number }}</a>{% endif %}</p>
+      <p class="subtitle has-text-grey is-4">{{ code.title }}{% if code.tag %}</a> <span class="tag is-light">{{ code.tag }}{% endif %}{% if code.rfc %} - <a href="{{ code.rfc.link }}" target="_blank">{{ code.rfc.number }}</a>{% endif %}</p>
     </header>
   </div>
 </div>
@@ -35,12 +35,13 @@ templateEngineOverride: njk
       </div>
       {% endif %}
     </div>
-    {# <nav class="breadcrumb" aria-label="breadcrumbs" style="padding-top: 1rem;">
+    <hr>
+    <nav class="breadcrumb is-centered has-succeeds-separator" aria-label="breadcrumbs">
       <ul>
-        <li>Status Codes</li>
-        <li>{{ code.group }}</li>
-        <li class="is-active"><a href="#" aria-current="page">{{ code.code }} - {{ code.title }}</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#{{ code.group }}">{{ code.group }}</a></li>
+        <li class="is-active"><a href="#" aria-current="page">Code {{ code.code }}</a></li>
       </ul>
-    </nav> #}
+    </nav>
   </div>
 </div>
