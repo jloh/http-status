@@ -20,18 +20,20 @@
   #     number: RFC7231
   #     link: https://tools.ietf.org/html/rfc7231#section-6.6.1
 
-  # 501:
-  #   title: Not Implemented
-  #   rfc:
-  #     number: RFC7231
-  #     link: https://tools.ietf.org/html/rfc7231#section-6.6.2
-  #   description: The origin web server either does not recognize the request method, or it unable to fulfill the request. Usually, this implies future availability (e.g., an upcoming feature or web-service API).
+  501:
+    title: Not Implemented
+    rfc:
+      number: RFC7231
+      link: https://tools.ietf.org/html/rfc7231#section-6.6.2
+    description: The origin web server either does not recognize the request method, or it unable to fulfill the request. Usually, this implies future availability (e.g., an upcoming feature or web-service API).
 
-  # 502:
-  #   title: Bad gateway
-  #   rfc:
-  #     number: RFC7231
-  #     link: https://tools.ietf.org/html/rfc7231#section-6.6.3
+  502:
+    title: Bad gateway
+    rfc:
+      number: RFC7231
+      link: https://tools.ietf.org/html/rfc7231#section-6.6.3
+    description: |
+      The 502 (Bad Gateway) status code indicates that the server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.
 
   503:
     title: Service Unavailable
