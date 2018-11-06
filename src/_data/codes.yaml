@@ -162,9 +162,27 @@
       - https://support.cloudflare.com/hc/en-us/articles/200721975/
   527:
     title: Railgun Listener to Origin Error
+    description: |
+      The request timed out or failed after the WAN connection had been established. This could result from an interruption or anomaly upstream from the Railgun Sender in the path to the Listener at the site origin web server.
+
+      527 error could also occur due to an issue within the host environment when the Railgun Listener is unable to complete or establish a connection to the origin web server to receive a requested page.
+    diagram: |
+      sequenceDiagram
+      participant User
+      participant Cloudflare
+      participant Cloudflare Railgun
+      participant Website
+      Note right of Website: Behind Cloudflare
+
+      User->>Cloudflare: Initial request
+      Cloudflare ->> Cloudflare Railgun: Fowards request
+      Cloudflare Railgun ->> Website: Request timed out / failed
+      Cloudflare Railgun -->> Cloudflare: Request fails
+      Cloudflare -->> User: Returns 526 error
     tag: Cloudflare
     refs:
       - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+      - https://support.cloudflare.com/hc/en-us/articles/217891268
   530:
     title: Origin DNS Error
     description: |
