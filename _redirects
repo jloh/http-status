@@ -1,3 +1,4 @@
 # Redirect domain aliases to primary domain
-https://www.httpstatus.jloh.co/* https://httpstatus.jloh.co/:splat 301!
-https://jloh-http-status.netlify.com/* https://httpstatus.jloh.co/:splat 301!
+https://www.httpstatus.jloh.co/* https://httpcodes.fyi/:splat 301!
+https://jloh-http-status.netlify.com/* https://httpcodes.fyi/:splat 301!
+https://httpstatus.jloh.co/* https://httpcodes.fyi/:splat 301!
