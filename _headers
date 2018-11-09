@@ -2,7 +2,7 @@
 /*
   Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://jloh.report-uri.com/a/d/g"}],"include_subdomains":true}
   NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}
-  Content-Security-Policy-Report-Only: default-src 'none'; form-action 'none'; report-uri https://jloh.report-uri.com/r/d/csp/wizard;
+  Content-Security-Policy-Report-Only: default-src 'none'; img-src 'self'; script-src 'self'; style-src 'self'; form-action 'none'; report-uri https://jloh.report-uri.com/r/d/csp/wizard;
 
 # Cache these for a year - we use a hash in the filename
 /css/*.css
