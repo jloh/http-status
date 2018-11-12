@@ -8,6 +8,8 @@
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   X-Xss-Protection: 1; mode=block; report=https://jloh.report-uri.com/r/d/xss/enforce
+  # Specify when to send our referrer - https://scotthelme.co.uk/a-new-security-header-referrer-policy/
+  Referrer-Policy: strict-origin-when-cross-origin
   # We don't need any browser features
   Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'
 
