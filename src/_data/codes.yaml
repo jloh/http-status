@@ -84,16 +84,42 @@
       * Presence of multiple Content-Length headers
     refs:
       - https://support.cloudflare.com/hc/en-us/articles/115003011431/
-  # 521:
-  #   title: Web server is down
-  #   tag: Cloudflare
-  #   refs:
-  #     - https://support.cloudflare.com/hc/en-us/articles/115003011431/
-  # 522:
-  #   title: Connection timed out
-  #   tag: Cloudflare
-  #   refs:
-  #     - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+  521:
+    title: Web server is down
+    tag: Cloudflare
+    description: |
+      The webserver behind Cloudflare (or another service that uses this resposne code) is refusing connections. This means Cloudflare tried to connect to your origin web server on port 80 or 443 but received a _connection refused_ error. The origin web server is actively refusing the request, so this is not a network error.
+    diagram: |
+      sequenceDiagram
+      participant User
+      participant Cloudflare
+      participant Website
+      Note right of Website: Behind Cloudflare
+
+      User ->> Cloudflare: Initial request
+      Cloudflare ->>+ Website: Initiates TCP connection
+      Website -->> Cloudflare: Refuses the connection
+      Cloudflare -->> User: Returns 521 error
+    refs:
+      - https://support.cloudflare.com/hc/en-us/articles/115003011431/
+  522:
+    title: Connection timed out
+    tag: Cloudflare
+    description: |
+      Cloudflare failed to establish a TCP connection to the website hosted behind it. If Cloudflare does not get a _SYN+ACK_ back within 15 seconds as part of the TCP handshake this error is returned.
+    diagram: |
+      sequenceDiagram
+      participant User
+      participant Cloudflare
+      participant Website
+      Note right of Website: Behind Cloudflare
+
+      User ->> Cloudflare: Initial request
+      Cloudflare ->>+ Website: Initiates TCP connection
+      Cloudflare -->>+ Website: TCP connection fails
+      Cloudflare -->> User: Returns 522 error
+    refs:
+      - https://support.cloudflare.com/hc/en-us/articles/115003011431/
   523:
     title: Origin is Unreachable
     tag: Cloudflare
