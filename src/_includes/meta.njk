@@ -3,7 +3,7 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:title" content="{% if code %}Status code {{ code.code}} - {{ code.title }}{% endif %}" />
     {# <meta property="og:description" content="" /> #}
-    <meta property="og:url" content="https://httpstatus.jloh.co{{ page.url }}" />
+    <meta property="og:url" content="https://httpcodes.fyi{{ page.url }}" />
 {%- if code %}
     <script type="application/ld+json">
       {
@@ -12,7 +12,7 @@
         "name": "HTTP Status Code {{ code.code }}",
         "termCode": "{{ code.code }}",
         "description": "{{ code.description }}",
-        "inDefinedTermSet": "https://httpstatus.jloh.co"
+        "inDefinedTermSet": "https://httpcodes.fyi/"
       }
     </script>
 {% endif -%}
