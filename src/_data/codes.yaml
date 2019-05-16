@@ -1,7 +1,25 @@
 ---
-# 2XX:
-#   200:
-#     title: gucci
+2XX:
+  201:
+    title: Created
+    description: |
+      201 Created indicates that the request has been fulfilled and has resulted in one or more new resources being created.  The primary resource created by the request is identified by either a Location header field in the response or, if no Location field is received, by the effective request URI.
+
+      The 201 response payload typically describes and links to the resource(s) created.  See [Section 7.2](https://tools.ietf.org/html/rfc7231#section-7.2) of the RFC for a discussion of the meaning and purpose of validator header fields, such as ETag and Last-Modified, in a 201 response.
+    rfc:
+      number: RFC 7231
+      link: https://tools.ietf.org/html/rfc7231#section-6.3.2
+  204:
+    title: No Content
+    description: |
+      204 No Content indicates that the server has successfully fulfilled the request and that there is no additional content to send in the response payload body.  Metadata in the response header fields refer to the target resource and its selected representation after the requested action was applied.
+
+      For example, if a 204 status code is received in response to a PUT request and the response contains an ETag header field, then the PUT was successful and the ETag field-value contains the entity-tag for the new representation of that target resource.
+
+      A 204 response is terminated by the first empty line after the header fields because it cannot contain a message body and is cacheable by default.
+    rfc:
+      number: RFC 7231
+      link: https://tools.ietf.org/html/rfc7231#section-6.3.5
 
 # 3XX:
 #   301:
@@ -18,20 +36,20 @@
     title: Internal Server Error
     description: The 500 (Internal Server Error) status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
     rfc:
-      number: RFC7231
+      number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.6.1
 
   501:
     title: Not Implemented
     rfc:
-      number: RFC7231
+      number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.6.2
     description: The origin web server either does not recognize the request method, or it unable to fulfill the request. Usually, this implies future availability (e.g., an upcoming feature or web-service API).
 
   502:
     title: Bad gateway
     rfc:
-      number: RFC7231
+      number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.6.3
     description: |
       The 502 (Bad Gateway) status code indicates that the server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.
@@ -39,14 +57,14 @@
   503:
     title: Service Unavailable
     rfc:
-      number: RFC7231
+      number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.6.4
     description: Indicates that the server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay.  The server MAY send a Retry-After header field to suggest an appropriate amount of time for the client to wait before retrying the request.
 
   504:
     title: Gateway Timeout
     rfc:
-      number: RFC7231
+      number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.6.5
     description: Indicates that the server, while acting as a gateway or proxy, did not receive a timely response from an upstream server it needed to access in order to complete the request.
 
@@ -64,7 +82,7 @@
       User ->> Website: Requests website
       Website -->> User: Returns 505 error
     rfc:
-      number: RFC7231
+      number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.6.6
 
   # Non-standard Ones
