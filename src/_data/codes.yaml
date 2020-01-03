@@ -21,9 +21,26 @@
       number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.3.5
 
-# 3XX:
-#   301:
-#     title: Moved Permanently
+3XX:
+  301:
+    title: Moved Permanently
+    description: |
+      301 Moved Permanently indicates that the target resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs. Links that result in a 301 should be edited to link directly to the final URI where possible.
+
+      The server SHOULD generate a `Location` header field in the response containing a preferred URI reference for the new permanent URI.  The user agent MAY use the Location field value for automatic redirection.  The server's response payload usually contains a short hypertext note with a hyperlink to the new URI(s) however this is optional.
+
+      This response is cachable.
+    diagram: |
+      sequenceDiagram
+      participant User
+      participant Website
+
+      User ->> Website: Requests /home/
+      Website -->> User: Redirects 301 /
+      User ->> Website: Requests /
+    rfc:
+      number: RFC 7231
+      link: https://tools.ietf.org/html/rfc7231#section-6.4.2
 
 # 4XX:
 #   401:
