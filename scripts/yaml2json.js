@@ -42,5 +42,5 @@ sobj = list.sort(function (a, b) {
   }
 })
 
-// this code if you want to save
+// Save file to disk
 fs.writeFileSync(outputfile, JSON.stringify(sobj, null, 2));
