@@ -3,7 +3,7 @@
   Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://jloh.report-uri.com/a/d/g"}],"include_subdomains":true}
   NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}
   # Need unsafe-inline for styles for Mermaid.js
-  Content-Security-Policy: default-src 'none'; img-src 'self' api.simpleanalytics.io; script-src 'self' cdn.simpleanalytics.io; style-src 'self' 'unsafe-inline'; connect-src api.simpleanalytics.io; form-action 'none'; report-uri https://jloh.report-uri.com/r/d/csp/enforce;
+  Content-Security-Policy: default-src 'none'; img-src 'self' sa.httpcodes.fyi api.simpleanalytics.io; script-src 'self' sa.httpcodes.fyi cdn.simpleanalytics.io; style-src 'self' 'unsafe-inline'; connect-src sa.httpcodes.fyi api.simpleanalytics.io; form-action 'none'; report-uri https://jloh.report-uri.com/r/d/csp/enforce;
   # More security headers
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
