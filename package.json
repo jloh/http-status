@@ -33,6 +33,7 @@
     "luxon": "^1.21.3",
     "postcss": "^7.0.26",
     "postcss-cli": "^6.1.3",
+    "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
     "tailwindcss": "^1.1.4"
   },
