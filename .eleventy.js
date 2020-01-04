@@ -17,7 +17,7 @@ module.exports = function (config) {
   config.addPlugin(cacheBuster(cacheBusterOptions));
 
   // RSS plugin is required for our sitemap?
-  config.addPlugin(pluginRss);
+  // config.addPlugin(pluginRss);
 
   // Required for the above
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
