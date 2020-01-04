@@ -7,7 +7,7 @@
     "start": "eleventy --serve",
     "yaml2json": "node scripts/yaml2json.js",
     "watch": "nodemon scripts/yaml2json.js -w src/_data/ -e yaml",
-    "build": "node scripts/yaml2json.js && eleventy"
+    "build": "node scripts/yaml2json.js && postcss -o src/css/main.css src/sass/main.css && eleventy"
   },
   "repository": {
     "type": "git",
