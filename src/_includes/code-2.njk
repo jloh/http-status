@@ -4,44 +4,42 @@ title: HTTP Status Codes
 templateEngineOverride: njk
 ---
 
-<div class="columns is-centered is-gapless">
-  <div class="column is-8">
-    <header>
-      <h1 class="title">Code {{ code.code }}</h1>
-      <p class="subtitle has-text-grey is-4">{{ code.title }}{% if code.tag %}</a> <span class="tag is-light">{{ code.tag }}{% endif %}{% if code.rfc %} - <a href="{{ code.rfc.link }}" target="_blank">{{ code.rfc.number }}</a>{% endif %}</p>
-    </header>
+<div class="py-12 md:pt-12 md:pb-6">
+  <div class="container md:max-w-4xl px-4 md:px-0">
+    <h1 class="font-bold text-3xl">Code {{ code.code }}</h1>
+    <p class="font-normal text-2xl text-gray-600">{{ code.title }}{% if code.tag %}</a> <span class="tag is-light">{{ code.tag }}{% endif %}{% if code.rfc %} - <a href="{{ code.rfc.link }}" target="_blank" class="text-blue-600 hover:text-blue-400">{{ code.rfc.number }}</a>{% endif %}</p>
   </div>
 </div>
 
-<div class="columns is-centered is-gapless">
-  <div class="column is-8">
-    <div>
-      <div class="content is-medium">
-        {{ content | safe }}
-      </div>
-      {% if code.diagram %}
-      <div class="mermaid">
-        {{ code.diagram }}
-      </div>
-      {% endif %}
-      {% if code.refs %}
-      <div class="content is-medium">
-        <h3 class="title is-4">References</h3>
-        <ul class="ref-list">
-          {% for ref in code.refs %}
-            <li><a href="{{ ref }}">{{ ref }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
+<div class="flex">
+  <div class="container md:max-w-4xl px-4 md:px-0">
+    <div class="text-xl font-light border-0 content">
+      {{ content | safe }}
     </div>
-    <hr>
-    <nav class="breadcrumb is-centered has-succeeds-separator" aria-label="breadcrumbs">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/#{{ code.group }}">{{ code.group }}</a></li>
-        <li class="is-active"><a href="#" aria-current="page">Code {{ code.code }}</a></li>
+    {% if code.diagram %}
+    <div class="mermaid">
+      {{ code.diagram }}
+    </div>
+    {% endif %}
+    {% if code.refs %}
+    <div class="content is-medium">
+      <h3 class="title is-4">References</h3>
+      <ul class="ref-list">
+        {% for ref in code.refs %}
+          <li><a href="{{ ref }}">{{ ref }}</a></li>
+        {% endfor %}
       </ul>
+    </div>
+    {% endif %}
+    <hr class="pb-6 mt-6">
+    <nav aria-label="breadcrumbs">
+      <ol class="list-reset flex text-lg text-grey-dark justify-center">
+        <li class="text-blue-600 hover:text-blue-400"><a href="/">Home</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li class="text-blue-600 hover:text-blue-400"><a href="/#{{ code.group }}">{{ code.group }}</a></li>
+        <li><span class="mx-2">/</span></li>
+        <li class="is-active"><a href="#" aria-current="page">Code {{ code.code }}</a></li>
+      </ol>
     </nav>
   </div>
 </div>

@@ -5,23 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if code %}{{ code.code}} - {{ code.title }} | {% endif %}{{ title }}</title>
     <link rel="canonical" href="https://httpcodes.fyi{{ page.url }}" />
-    <link rel="stylesheet" href="/css/bulma.min.css">
     <link rel="stylesheet" href="/css/main.css">
     {% include 'meta.njk' %}
   </head>
-  <body class="Site">
+  <body class="flex min-h-screen flex-col">
   {% include 'nav.njk' %}
-  <section class="section Site-content">
-    <div class="container">
-      {{ content | safe }}
-    </div>
+  <section class="text-gray-800 flex-1">
+    {{ content | safe }}
   </section>
-  <footer class="footer">
-    <div class="container">
-      <div class="columns is-gapless is-mobile mb-0">
-        <div class="column is-pulled-left">Made with <svg class="svg-inline--fa fa-heart fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg> by <a href="https://jloh.co">jloh</a></div>
-        <div class="column is-pulled-right has-text-right">Built with <a href="https://www.11ty.io/" title="Eleventy static site generator">Eleventy</a>, <a href="https://bulma.io/" title="Bulma: A modern CSS framework">Bulma</a> and <a href="https://www.netlify.com/" title="Netlify">Netlify</a></div>
-      </div>
+  <footer class="py-10 bg-gray-100 font-light">
+    <div class="w-full md:max-w-4xl xl:max-w-6xl mx-auto flex flex-wrap items-center justify-between mt-0 py-2 px-4 md:px-0">
+      <div class="">Made with heart by <a class="text-blue-600 hover:text-blue-400" href="https://jloh.co">jloh</a></div>
+      <div class="md:text-right">Built with <a class="text-blue-600 hover:text-blue-400" href="https://www.11ty.io/" title="Eleventy static site generator">Eleventy</a>, <a class="text-blue-600 hover:text-blue-400" href="https://tailwindcss.com/" title="Bulma: A modern CSS framework">Tailwind</a> and <a class="text-blue-600 hover:text-blue-400" href="https://www.netlify.com/" title="Netlify">Netlify</a></div>
     </div>
   </footer>
   {% include 'js.njk' %}
