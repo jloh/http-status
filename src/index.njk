@@ -3,14 +3,14 @@ title: HTTP Status Codes
 layout: base
 ---
 
-<div class="columns is-centered is-gapless">
-  <div class="column is-8">
-    <div class="content">
+<div class="flex mb-4">
+  <div class="container w-3/5">
+    <div class="px-4">
       {% for group,c in codes | groupby("group")%}
-        <h2 class="title is-normal" id="{{ group }}">{{ group }}</h2>
-        <ul class="is-size-5">
+        <h2 class="text-2xl py-5" id="{{ group }}">{{ group }}{% if status.group_name %}{{ status.group_name }}{% endif %}</h2>
+        <ul class="text-xl list-disc list-inside ml-5">
         {% for status in c %}
-          <li><a href="/{{ status.code }}/">{{ status.code }} - {{ status.title }}</a>{% if status.tag %} <span class="tag is-light">{{ status.tag }}</span>{% endif %}</li>
+          <li class="py-1" ><a class="hover:text-blue-400" href="/{{ status.code }}/"><span class="text-blue-600">{{ status.code }}</span> {{ status.title }}</a>{% if status.tag %} <span class="bg-gray-200 rounded p-1 font-light text-lg">{{ status.tag }}</span>{% endif %}</li>
         {% endfor %}
         </ul>
       {% endfor %}
