@@ -1,0 +1,29 @@
+.mermaid svg {
+  /* Add some padding above our main text */
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+a {
+  transition: all 0.1s;
+}
+
+.font-numeric-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Nicer paragraphs */
+.content {
+  p {
+    @apply mb-4;
+    &:last-child{
+      @apply mb-0;
+    }
+  }
+  ul {
+    @apply list-disc list-inside pl-2;
+  }
+}
