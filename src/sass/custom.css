@@ -27,3 +27,42 @@ a {
     @apply list-disc list-inside pl-2;
   }
 }
+
+.homepage-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-between;
+  /* Your container needs a fixed height, and it
+   * needs to be taller than your tallest column. */
+  height: 1000px;
+}
+
+.homepage-item {
+  width: 32%;
+  margin-bottom: 2%; /* Optional */
+}
+
+/* Re-order items into 3 rows */
+.homepage-item:nth-child(1n+1) { order: 1; }
+.homepage-item:nth-child(1n) { order: 2; }
+
+/* Force new columns */
+.homepage-container::before,
+.homepage-container::after {
+  content: "";
+  flex-basis: 100%;
+  width: 0;
+  order: 1;
+}
+
+@screen lg {
+  .wall{
+    columns:2;
+    column-gap: 1em;
+  }
+  .brick{
+    margin-bottom:1em;
+  	/* No cross browser 'break-inside' property being supported yet: */
+    display:inline-block;
+  }
+}
