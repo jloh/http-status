@@ -1,0 +1,20 @@
+# Report URI headers
+/*
+  Report-To: {"group":"default","max_age":31536000,"endpoints":[{"url":"https://jloh.report-uri.com/a/d/g"}],"include_subdomains":true}
+  NEL: {"report_to":"default","max_age":31536000,"include_subdomains":true}
+  # Need unsafe-inline for styles for Mermaid.js
+  Content-Security-Policy: default-src 'none'; img-src 'self' sa.httpcodes.fyi api.simpleanalytics.io; script-src 'self' sa.httpcodes.fyi cdn.simpleanalytics.io; style-src 'self' 'unsafe-inline'; connect-src sa.httpcodes.fyi api.simpleanalytics.io; form-action 'none'; report-uri https://jloh.report-uri.com/r/d/csp/enforce;
+  # More security headers
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  X-Xss-Protection: 1; mode=block; report=https://jloh.report-uri.com/r/d/xss/enforce
+  # Specify when to send our referrer - https://scotthelme.co.uk/a-new-security-header-referrer-policy/
+  Referrer-Policy: strict-origin-when-cross-origin
+  # We don't need any browser features
+  Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'
+
+# Cache these for a year - we use a hash in the filename
+/css/*.css
+  Cache-Control: public, max-age=31536000
+/js/*.js
+  Cache-Control: public, max-age=31536000
