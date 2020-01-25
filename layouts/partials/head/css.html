@@ -1,0 +1,3 @@
+{{- $css := resources.Get "css/main.css" -}}
+{{- $style := $css | resources.PostCSS | resources.Fingerprint "sha512" -}}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">

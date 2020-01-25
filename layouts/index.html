@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ $pages := where .Site.RegularPages "Section" "codes" }}
+<div class="">
+  <div class="container w-full lg:w-3/5">
+  <div class="wall">
+    {{ range sort ($pages.GroupBy "CurrentSection" ) .Params.code "asc" }}
+    <div class="brick px-4 lg:min-w-1/2">
+        <h2 class="text-2xl pt-4" id="{{ .Key.Params.Code }}">{{ .Key.Title }}</h2>
+        <ol class="text-xl list-inside lg:pl-3">
+        {{ range sort .Pages ".Params.code" "asc" }}
+          <li class="font-light"><a class="hover:text-blue-400 font-numeric-tabular" href="{{ .Permalink }}"><span class="text-blue-600">{{ .Params.Code }}</span> {{ .Title }}</a>{{ with .Params.tags }} {{ range sort . }}<span class="bg-gray-200 rounded p-1 font-light text-lg"><a href="{{ "tags" | absURL }}/{{ . | urlize }}/">{{ . }}</a></span>{{ end }}{{ end }}</li>
+        {{ end}}
+        </ol>
+    </div>
+    {{ end }}
+  </div>
+  </div>
+</div>
+{{ end }}

@@ -1,9 +1,12 @@
+// Current directory
+const currentDir = __dirname;
+
 // postcss.config.js
 const purgecss = require('@fullhuman/postcss-purgecss')({
 
   // Specify the paths to all of the template files in your project
   content: [
-    'src/**/*.njk',
+    'layouts/',
   ],
   whitelist: [
     'pre'
@@ -18,7 +21,9 @@ const cssnano = require('cssnano');
 // postcss.config.js
 module.exports = {
   plugins: [
-    require('postcss-import'),
+    require('postcss-import')({
+      path: currentDir + '/assets/css'
+    }),
     require('tailwindcss'),
     require('postcss-nested'),
     require('autoprefixer'),

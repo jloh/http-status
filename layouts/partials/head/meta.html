@@ -1,0 +1,19 @@
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="{{ if eq .Section "codes" }}Status code {{ .Params.code }} - {{ .Title }}{{ end }}" />
+    <!-- {# <meta property="og:description" content="" /> #} -->
+    <meta property="og:url" content="{{ .Permalink }}" />
+{{ if eq .Section "codes" }}
+{{/* Start our scratch */}}
+{{- $scratch := newScratch -}}
+{{- $scratch.SetInMap "schema" "@context" "http://schema.org/" -}}
+{{- $scratch.SetInMap "schema" "@type" "DefinedTerm" -}}
+{{- $scratch.SetInMap "schema" "name" (print .Title " " .Params.Code) -}}
+{{- $scratch.SetInMap "schema" "termCode" (string .Params.Code ) -}}
+{{- $scratch.SetInMap "schema" "description" .Description -}}
+{{- $scratch.SetInMap "schema" "inDefinedTermSet" .Site.BaseURL -}}
+{{ "<script type=\"application/ld+json\">" | safeHTML }}
+{{ $scratch.Get "schema" | jsonify }}
+{{ "</script>" | safeHTML }}
+{{ end }}

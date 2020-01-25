@@ -1,0 +1,11 @@
+baseURL = "https://httpcodes.fyi/"
+languageCode = "en-us"
+title = "HTTP Status Codes"
+
+enableGitInfo = true
+
+[permalinks]
+  codes = "/:filename/"
+
+[markup.goldmark.renderer]
+  unsafe = true
