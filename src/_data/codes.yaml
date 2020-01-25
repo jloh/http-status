@@ -1,18 +1,18 @@
 ---
-1XX:
-  100:
-    title: Continue
-  101:
-    title: Switching Protocols
-  102:
-    title: Processing
-    tag: Webdav
-  103:
-    title: Early Hints
+#1XX:
+#  100:
+#    title: Continue
+#  101:
+#    title: Switching Protocols
+#  102:
+#    title: Processing
+#    tag: Webdav
+#  103:
+#    title: Early Hints
 
 2XX:
-  200:
-    title: OK
+#  200:
+#    title: OK
   201:
     title: Created
     description: |
@@ -22,10 +22,10 @@
     rfc:
       number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.3.2
-  202:
-    title: Accepted
-  203:
-    title: Non-Authoritative Information
+#  202:
+#    title: Accepted
+#  203:
+#    title: Non-Authoritative Information
   204:
     title: No Content
     description: |
@@ -37,18 +37,18 @@
     rfc:
       number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.3.5
-  205:
-    title: Reset Content
-  206:
-    title: Partial Content
-  207:
-    title: Multi-Status
-    tag: Webdav
-  208:
-    title: Already Reported
-    tag: Webdav
-  226:
-    title: IM Used
+#  205:
+#    title: Reset Content
+#  206:
+#    title: Partial Content
+#  207:
+#    title: Multi-Status
+#    tag: Webdav
+#  208:
+#    title: Already Reported
+#    tag: Webdav
+#  226:
+#    title: IM Used
 
 3XX:
   300:
@@ -72,83 +72,83 @@
     rfc:
       number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.4.2
-  302:
-    title: Found
-  303:
-    title: See Other
-  304:
-    title: Not Modified
-  305:
-    title: Use Proxy
-  306:
-    title: Switch Proxy
-  307:
-    title: Temporary Redirect
-  308:
-    title: Permanent Redirect
+#  302:
+#    title: Found
+#  303:
+#    title: See Other
+#  304:
+#    title: Not Modified
+#  305:
+#    title: Use Proxy
+#  306:
+#    title: Switch Proxy
+#  307:
+#    title: Temporary Redirect
+#  308:
+#    title: Permanent Redirect
 
-4XX:
-  400:
-    title: Bad Request
-  401:
-    title: Denied
-  402:
-    title: Payment Required
-  403:
-    title: Forbidden
-  404:
-    title: Not Found
-  405:
-    title: Method Not Allowed
-  406:
-    title: Not Acceptable
-  407:
-    title: Proxy Authentication Required
-  408:
-    title: Request Timeout
-  409:
-    title: Conflict
-  410:
-    title: Gone
-  411:
-    title: Length Required
-  412:
-    title: Precondition Failed
-  413:
-    title: Payload Too Large
-  414:
-    title: URI Too Long
-  415:
-    title: Unsupported Media Type
-  416:
-    title: Range Not Satisfiable
-  417:
-    title: Expectation Failed
-  418:
-    title: I'm a teapot
-  421:
-    title: Misdirected Request
-  422:
-    title: Unprocessable Entity
-    tag: Webdav
-  423:
-    title: Locked
-    tag: Webdav
-  424:
-    title: Failed Dependency
-    tag: Webdav
-  425:
-    title: Too Early
-  426:
-    title: Upgrade Required
-  428:
-    title: Precondition Required
-  429:
-    title: Too Many Requests
-  431:
-    title: Request Header Fields Too Large
-  451:
-    title: Unavailable For Legal Reasons
+#4XX:
+#  400:
+#    title: Bad Request
+#  401:
+#    title: Denied
+#  402:
+#    title: Payment Required
+#  403:
+#    title: Forbidden
+#  404:
+#    title: Not Found
+#  405:
+#    title: Method Not Allowed
+#  406:
+#    title: Not Acceptable
+#  407:
+#    title: Proxy Authentication Required
+#  408:
+#    title: Request Timeout
+#  409:
+#    title: Conflict
+#  410:
+#    title: Gone
+#  411:
+#    title: Length Required
+#  412:
+#    title: Precondition Failed
+#  413:
+#    title: Payload Too Large
+#  414:
+#    title: URI Too Long
+#  415:
+#    title: Unsupported Media Type
+#  416:
+#    title: Range Not Satisfiable
+#  417:
+#    title: Expectation Failed
+#  418:
+#    title: I'm a teapot
+#  421:
+#    title: Misdirected Request
+#  422:
+#    title: Unprocessable Entity
+#    tag: Webdav
+#  423:
+#    title: Locked
+#    tag: Webdav
+#  424:
+#    title: Failed Dependency
+#    tag: Webdav
+#  425:
+#    title: Too Early
+#  426:
+#    title: Upgrade Required
+#  428:
+#    title: Precondition Required
+#  429:
+#    title: Too Many Requests
+#  431:
+#    title: Request Header Fields Too Large
+#  451:
+#    title: Unavailable For Legal Reasons
 
 5XX:
   500:
@@ -204,18 +204,18 @@
       number: RFC 7231
       link: https://tools.ietf.org/html/rfc7231#section-6.6.6
 
-  506:
-    title: Variant Also Negotiates
-  507:
-    title: Insufficient Storage
-    tag: Webdav
-  508:
-    title: Loop Detected
-    tag: Webdav
-  510:
-    title: Not Extended
-  511:
-    title: Network Authentication Required
+#  506:
+#    title: Variant Also Negotiates
+#  507:
+#    title: Insufficient Storage
+#    tag: Webdav
+#  508:
+#    title: Loop Detected
+#    tag: Webdav
+#  510:
+#    title: Not Extended
+#  511:
+#    title: Network Authentication Required
 
   # Non-standard Ones
   520:
