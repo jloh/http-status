@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Site.Title }}</title>
+    <link rel="canonical" href="{{ .Permalink }}" />
+    {{ partialCached "head/css" . }}
+    {{- partial "head/meta" . }}
+  </head>
+  <body class="min-h-screen">
+  {{ partialCached "nav/main" . }}
+  <section class="text-gray-800">
+  {{ block "main" . }}
+  {{ end }}
+  </section>
+  {{ partialCached "footer" . }}
+  <!-- Add JS -->
+  {{- $mermaid_js := resources.Get "js/mermaid.min.js" | resources.Fingerprint "sha512" -}}
+  <script src="{{ $mermaid_js.RelPermalink }}"></script>
+  <script async defer src="https://sa.httpcodes.fyi/app.js"></script>
+  <noscript><img src="https://sa.httpcodes.fyi/image.gif" alt=""></noscript>
+  </body>
+</html>
