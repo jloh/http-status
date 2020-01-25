@@ -1,4 +1,9 @@
-# Ignore our built site/files
-dist/
-src/_data/codes.json
-src/css/main.css
+# Created by https://www.gitignore.io/api/hugo
+# Edit at https://www.gitignore.io/?templates=hugo
+
+### Hugo ###
+# Generated files by hugo
+/public/
+/resources/_gen/
+
+# End of https://www.gitignore.io/api/hugo
