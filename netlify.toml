@@ -2,10 +2,12 @@
 publish = "public"
 command = "hugo --gc --minify"
 
-[context.production.environment]
+[environment]
 HUGO_VERSION = "0.63.1"
-HUGO_ENV = "production"
 HUGO_ENABLEGITINFO = "true"
+
+[context.production.environment]
+HUGO_ENV = "production"
 
 [context.deploy-preview]
 command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
