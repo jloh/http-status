@@ -1,0 +1,17 @@
+# Hugo redirects
+{{-  range $p := .Site.Pages -}}
+{{ range .Aliases }}
+{{  . | printf "%-35s" }}	{{ $p.RelPermalink -}}
+{{ end -}}
+{{ end }}
+
+# Redirect domain aliases to primary domain
+https://www.httpstatus.jloh.co/* https://httpcodes.fyi/:splat 301!
+https://httpstatus.jloh.co/* https://httpcodes.fyi/:splat 301!
+https://www.httpcodes.fyi/* https://httpcodes.fyi/:splat 301!
+https://httpstatus.fyi/* https://httpcodes.fyi/:splat 301!
+https://www.httpstatus.fyi/* https://httpcodes.fyi/:splat 301!
+https://jloh-http-status.netlify.com/* https://httpcodes.fyi/:splat 301!
+
+# Temporary redirect before I make an actual /open/ page
+https://httpcodes.fyi/open/ https://simpleanalytics.com/httpcodes.fyi 302!

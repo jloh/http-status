@@ -9,3 +9,27 @@ enableGitInfo = true
 
 [markup.goldmark.renderer]
   unsafe = true
+
+[outputs]
+  home = [
+    "HTML",
+    "RSS",
+    "HEADERS",
+    "REDIRECTS"
+  ]
+
+[mediaTypes]
+  [mediaTypes."text/netlify"]
+    delimiter = ""
+
+[outputFormats]
+  [outputFormats.REDIRECTS]
+    mediatype = "text/netlify"
+    baseName = "_redirects"
+    isPlainText = true
+    notAlternative = true
+  [outputFormats.HEADERS]
+    mediatype = "text/netlify"
+    baseName = "_headers"
+    isPlainText = true
+    notAlternative = true
