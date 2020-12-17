@@ -1,14 +1,14 @@
 {{ define "main" }}
 <div class="py-8">
-  <div class="container md:max-w-4xl px-4 lg:px-0">
-    <h1 class="font-bold text-3xl">Code {{ .Params.Code }}</h1>
-    <p class="font-normal text-2xl text-gray-600">{{ .Title }}{{ with .Params.tags }}{{ range . }} <span class="bg-gray-200 rounded p-1 text-gray-800 font-light text-lg">{{ . }}</span>{{ end }}{{ end }}{{ with .Params.rfc }} - <a href="{{ .link }}" target="_blank" class="text-blue-600 hover:text-blue-400">RFC {{ .number }}</a>{{ end }}</p>
+  <div class="container font-light md:max-w-4xl px-4 lg:px-0">
+    <h1 class="font-normal text-3xl">Code {{ .Params.Code }}</h1>
+    <p class="text-2xl text-gray-600">{{ .Title }}{{ with .Params.tags }}{{ range . }} <span class="bg-gray-200 rounded p-1 text-gray-800 font-light text-lg">{{ . }}</span>{{ end }}{{ end }}{{ with .Params.rfc }} - <a href="{{ .link }}" target="_blank" class="text-blue-600 hover:text-blue-400">RFC {{ .number }}</a>{{ end }}</p>
   </div>
 </div>
 
 <div class="flex">
-  <div class="container md:max-w-4xl">
-    <div class="text-xl font-normal border-0 content px-4 lg:px-0">
+  <div class="container md:max-w-4xl font-light">
+    <div class="text-xl font-light border-0 content px-4 lg:px-0">
       {{ .Content }}
     </div>
     {{ with .Params.diagram }}
@@ -21,7 +21,7 @@
       <h3 class="font-normal">References</h3>
       <ul class="list-inside list-disc pl-3">
         {{  range . }}
-          <li><a class="text-blue-600 hover:text-blue-400" href="{{ . }}">{{ . }}</a></li>
+          <li><a class="text-blue-600 hover:text-blue-400 font-light" href="{{ . }}">{{ . }}</a></li>
         {{ end }}
       </ul>
     </div>
