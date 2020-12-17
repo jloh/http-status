@@ -1,3 +1,4 @@
 {{- $css := resources.Get "css/main.css" -}}
-{{- $style := $css | resources.PostCSS | resources.Fingerprint "sha512" -}}
+{{- $options := (dict "inlineImports" true ) -}}
+{{- $style := $css | resources.PostCSS $options | resources.Fingerprint "sha512" -}}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">

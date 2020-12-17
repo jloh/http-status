@@ -1,17 +1,21 @@
 module.exports = {
+  future: {
+    purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true,
+  },
+  purge: {
+    enabled: process.env.HUGO_ENVIRONMENT !== 'development' ? true : false,
+    content: [
+      'layouts/**/*.html',
+      'layouts/*.html',
+      'content/*.md'       // Only look at the top level (ie pages) for now for speed
+    ],
+    options: {}
+  },
   theme: {
-    minWidth: {
-      '0': '0',
-      '1/4': '25%',
-      '1/2': '50%',
-      '3/4': '75%',
-      'full': '100%',
-    },
     container: {
       center: true
     },
-    extend: {}
-  },
-  variants: {},
-  plugins: []
+    extend: {},
+  }
 }
