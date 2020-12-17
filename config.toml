@@ -7,6 +7,9 @@ enableGitInfo = true
 [permalinks]
   codes = "/:filename/"
 
+[Params]
+  ghrepo = "https://github.com/jloh/http-status/"
+
 [markup.goldmark.renderer]
   unsafe = true
 
