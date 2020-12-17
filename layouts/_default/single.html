@@ -1,8 +1,7 @@
 {{ define "main" }}
 <div class="py-8">
   <div class="container md:max-w-4xl px-4 lg:px-0">
-    <h1 class="font-bold text-3xl">Code {{ .Params.Code }}</h1>
-    <p class="font-normal text-2xl text-gray-600">{{ .Title }}{{ with .Params.tags }}{{ range . }} <span class="bg-gray-200 rounded p-1 text-gray-800 font-light text-lg">{{ . }}</span>{{ end }}{{ end }}{{ with .Params.rfc }} - <a href="{{ .link }}" target="_blank" class="text-blue-600 hover:text-blue-400">RFC {{ .number }}</a>{{ end }}</p>
+    <h1 class="font-bold text-3xl">{{ .Title }}</h1>
   </div>
 </div>
 
@@ -11,21 +10,6 @@
     <div class="text-xl font-normal border-0 content px-4 lg:px-0">
       {{ .Content }}
     </div>
-    {{ with .Params.diagram }}
-    <div class="mermaid my-4">
-      {{ . }}
-    </div>
-    {{ end }}
-    {{ with .Params.refs }}
-    <div class="text-xl font-light border-0 px-4 mt-4 lg:px-0">
-      <h3 class="font-normal">References</h3>
-      <ul class="list-inside list-disc pl-3">
-        {{  range . }}
-          <li><a class="text-blue-600 hover:text-blue-400" href="{{ . }}">{{ . }}</a></li>
-        {{ end }}
-      </ul>
-    </div>
-    {{ end }}
     <hr class="my-6">
     <nav class="mt-6" aria-label="breadcrumbs">
       <ol class="list-reset flex text-lg text-grey-dark justify-center" itemscope itemtype="http://schema.org/BreadcrumbList">
@@ -36,14 +20,7 @@
           <meta itemprop="position" content="1" />
         </li>
         <li><span class="mx-2">/</span></li>
-        <li class="text-blue-600 hover:text-blue-400" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <a href="/#{{ .CurrentSection.Params.code }}" itemprop="item">
-            <span itemprop="name">{{ .CurrentSection.Name }}</span>
-          </a>
-          <meta itemprop="position" content="2" />
-        </li>
-        <li><span class="mx-2">/</span></li>
-        <li>Code {{ .Params.Code }}</li>
+        <li>{{ .Title }}</li>
       </ol>
     </nav>
   </div>

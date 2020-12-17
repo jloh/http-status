@@ -1,0 +1,61 @@
+{{ define "main" }}
+<div class="py-8">
+  <div class="container md:max-w-4xl px-4 lg:px-0">
+    <h1 class="font-bold text-3xl">Code {{ .Params.Code }}</h1>
+    <p class="font-normal text-2xl text-gray-600">{{ .Title }}{{ with .Params.tags }}{{ range . }} <span class="bg-gray-200 rounded p-1 text-gray-800 font-light text-lg">{{ . }}</span>{{ end }}{{ end }}{{ with .Params.rfc }} - <a href="{{ .link }}" target="_blank" class="text-blue-600 hover:text-blue-400">RFC {{ .number }}</a>{{ end }}</p>
+  </div>
+</div>
+
+<div class="flex">
+  <div class="container md:max-w-4xl">
+    <div class="text-xl font-normal border-0 content px-4 lg:px-0">
+      {{ .Content }}
+    </div>
+    {{ with .Params.diagram }}
+    <div class="mermaid my-4">
+      {{ . }}
+    </div>
+    {{ end }}
+    {{ with .Params.refs }}
+    <div class="text-xl font-light border-0 px-4 mt-4 lg:px-0">
+      <h3 class="font-normal">References</h3>
+      <ul class="list-inside list-disc pl-3">
+        {{  range . }}
+          <li><a class="text-blue-600 hover:text-blue-400" href="{{ . }}">{{ . }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+    <hr class="my-6">
+    <nav class="mt-6 px-4 lg:px-0" aria-label="breadcrumbs">
+      <ol class="list-reset flex text-base md:text-lg text-grey-dark justify-center" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li class="text-blue-600 hover:text-blue-400" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a href="/" itemprop="item">
+            <span itemprop="name">HTTP Codes</span>
+          </a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <li><span class="mx-2">/</span></li>
+        <li class="text-blue-600 hover:text-blue-400" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a href="/#{{ .CurrentSection.Params.code }}" itemprop="item">
+            <span itemprop="name">{{ .CurrentSection.Name }}</span>
+          </a>
+          <meta itemprop="position" content="2" />
+        </li>
+        <li><span class="mx-2">/</span></li>
+        <li>Code {{ .Params.Code }}</li>
+      </ol>
+    </nav>
+    <div class="text-base font-light mt-6 mb-4 px-4 lg:px-0 w-full md:max-w-4xl xl:max-w-6xl mx-auto flex flex-wrap items-center justify-between">
+      <div>
+        {{ if .GitInfo }}
+        <p class="font-normal">Updated <a class="text-blue-600 hover:text-blue-400" href="{{$.Site.Params.ghrepo}}commit/{{ .GitInfo.Hash }}" title="{{ .GitInfo.Subject }}">{{ .Lastmod.Format "January 2, 2006" }}</a></p>
+        {{ end }}
+      </div>
+      <div class="md:text-right">
+        <p class="font-normal">Improve <a class ="text-blue-600 hover:text-blue-400" href="{{.Site.Params.ghrepo}}tree/master/content/{{.File.Path}}">this page on GitHub</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -3,7 +3,7 @@
 <div class="">
   <div class="container w-full lg:w-3/5">
   <div class="wall">
-    {{ range sort ($pages.GroupBy "CurrentSection" ) .Params.code "asc" }}
+    {{ range $pages.GroupBy "CurrentSection" }}
     <div class="brick px-4 lg:min-w-1/2">
         <h2 class="text-2xl pt-4" id="{{ .Key.Params.Code }}">{{ .Key.Title }}</h2>
         <ol class="text-xl list-inside lg:pl-3">
