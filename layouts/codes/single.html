@@ -19,9 +19,9 @@
     {{ with .Params.refs }}
     <div class="text-xl font-light border-0 px-4 mt-4 lg:px-0">
       <h3 class="font-normal">References</h3>
-      <ul class="list-inside list-disc pl-3">
+      <ul class="list-inside list-disc ml-3">
         {{  range . }}
-          <li><a class="text-blue-600 hover:text-blue-400 font-light break-words" href="{{ . }}">{{ . }}</a></li>
+          <li><a class="text-blue-600 hover:text-blue-400 font-light break-all" href="{{ . }}">{{ . }}</a></li>
         {{ end }}
       </ul>
     </div>
