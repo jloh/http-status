@@ -23,6 +23,15 @@ a {
       @apply mb-0;
     }
   }
+  a {
+    @apply text-blue-600;
+    &:hover {
+      @apply text-blue-400;
+    }
+  }
+  code {
+    @apply font-mono bg-gray-200 rounded p-1 text-base font-light;
+  }
   ul {
     @apply list-disc list-inside pl-2;
   }
