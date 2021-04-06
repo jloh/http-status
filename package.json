@@ -25,7 +25,7 @@
     "exec": "node scripts/yaml2json.js"
   },
   "dependencies": {
-    "cssnano": "^4.1.10",
+    "cssnano": "^4.1.11",
     "postcss": "^8.1.14",
     "postcss-cli": "^8.3.0",
     "postcss-nested": "^5.0.3",
