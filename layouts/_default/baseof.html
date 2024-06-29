@@ -19,7 +19,5 @@
   <!-- Add JS -->
   {{- $mermaid_js := resources.Get "js/mermaid.min.js" | resources.Fingerprint "sha512" -}}
   <script src="{{ $mermaid_js.RelPermalink }}"></script>
-  <script async defer src="https://sa.httpcodes.fyi/app.js"></script>
-  <noscript><img src="https://sa.httpcodes.fyi/image.gif" alt=""></noscript>
   </body>
 </html>
